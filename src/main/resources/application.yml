@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: test
+  datasource:
+    url: jdbc:postgresql://localhost:5432/technical_test
+    username: postgres
+    password: herrera21
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+
+server:
+  port: 8090
