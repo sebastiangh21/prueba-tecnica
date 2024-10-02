@@ -8,6 +8,16 @@ public class StockMovement {
     private String movementType;
     private LocalDateTime movementDate;
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    private int quantity;
+
     public Long getIdProduct() {
         return idProduct;
     }

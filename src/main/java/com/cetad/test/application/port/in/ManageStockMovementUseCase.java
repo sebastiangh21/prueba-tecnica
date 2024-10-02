@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface ManageStockMovementUseCase {
     List<StockMovement> getStockMovementForProductId(Long productId);
-    StockMovement createStockMovement(StockMovement stockMovement);
 }

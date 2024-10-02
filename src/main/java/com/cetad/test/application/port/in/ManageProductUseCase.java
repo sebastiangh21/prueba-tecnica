@@ -8,7 +8,7 @@ public interface ManageProductUseCase {
     Product createProduct(Product product);
     Product getProductById(Long id);
     List<Product> getAllProducts();
-    Product getProductByName(Long id);
+    List<Product> getProductByName(String name);
     Product updateProduct(Long id, Product product);
     void deleteProduct(Long id);
 }
