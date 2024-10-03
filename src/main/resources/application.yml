@@ -9,5 +9,16 @@ spring:
   jpa:
     show-sql: true
 
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enable: true
+  api-docs:
+    enable: true
+
+logging:
+  level:
+    com.cetad.test: DEBUG
+
 server:
   port: 8090
