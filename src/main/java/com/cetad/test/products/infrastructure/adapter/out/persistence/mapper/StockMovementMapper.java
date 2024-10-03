@@ -13,7 +13,7 @@ import java.util.List;
 public interface StockMovementMapper {
     @Mappings({
             @Mapping(source = "idMovement", target = "idMovement"),
-            @Mapping(source = "idProduct", target = "idProduct"),
+            @Mapping(source = "productEntity.idProduct", target = "idProduct"),
             @Mapping(source = "movementType", target = "movementType"),
             @Mapping(source = "movementDate", target = "movementDate"),
             @Mapping(source = "quantity", target = "quantity"),
@@ -22,5 +22,6 @@ public interface StockMovementMapper {
     List<StockMovement> toStockMovements(List<StockMovementEntity> entities);
 
     @InheritInverseConfiguration
+    @Mapping(target = "productEntity", ignore = true)
     StockMovementEntity toStockMovementEntity(StockMovement stockMovement);
 }

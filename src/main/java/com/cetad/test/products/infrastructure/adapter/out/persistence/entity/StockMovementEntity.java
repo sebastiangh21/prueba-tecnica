@@ -12,14 +12,23 @@ public class StockMovementEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_movement")
     private Long idMovement;
-    @Column(name = "id_product")
-    private Long idProduct;
     @Column(name = "movement_type")
     private String movementType;
     @Column(name = "movement_date", updatable = false)
     @CreationTimestamp
     private LocalDateTime movementDate;
     private int quantity;
+    @ManyToOne
+    @JoinColumn(name = "id_product", insertable = false, updatable = false)
+    private ProductEntity productEntity;
+
+    public ProductEntity getProductEntity() {
+        return productEntity;
+    }
+
+    public void setProductEntity(ProductEntity productEntity) {
+        this.productEntity = productEntity;
+    }
 
     public Long getIdMovement() {
         return idMovement;
@@ -27,14 +36,6 @@ public class StockMovementEntity {
 
     public void setIdMovement(Long idMovement) {
         this.idMovement = idMovement;
-    }
-
-    public Long getIdProduct() {
-        return idProduct;
-    }
-
-    public void setIdProduct(Long idProduct) {
-        this.idProduct = idProduct;
     }
 
     public String getMovementType() {

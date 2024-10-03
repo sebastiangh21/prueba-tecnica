@@ -9,8 +9,6 @@ public class InventoryEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_inventory")
     private Long idInventory;
-    @Column(name = "id_product")
-    private Long idProduct;
     @Column(name = "available_quantity")
     private int availableQuantity;
     @OneToOne
@@ -31,14 +29,6 @@ public class InventoryEntity {
 
     public void setIdInventory(Long idInventory) {
         this.idInventory = idInventory;
-    }
-
-    public Long getIdProduct() {
-        return idProduct;
-    }
-
-    public void setIdProduct(Long idProduct) {
-        this.idProduct = idProduct;
     }
 
     public int getAvailableQuantity() {

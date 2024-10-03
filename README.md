@@ -190,14 +190,14 @@ El producto ha sido eliminado.
     "idProduct": 1,
     "movementType": "entry",
     "movementDate": "2024-10-02T10:35:00",
-    "quantity": 10
+    "quantity": 1
   },
   {
     "idMovement": 2,
     "idProduct": 1,
     "movementType": "exit",
     "movementDate": "2024-10-02T11:00:00",
-    "quantity": 2
+    "quantity": 1
   }
 ]
 ```

@@ -6,6 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -23,6 +24,26 @@ public class ProductEntity {
     @Column(name = "modification_date")
     @UpdateTimestamp
     private LocalDateTime modificationDate;
+    @OneToOne(mappedBy = "productEntity", cascade = CascadeType.REMOVE)
+    private InventoryEntity inventoryEntity;
+    @OneToMany(mappedBy = "productEntity", cascade = CascadeType.REMOVE)
+    private List<StockMovementEntity> stockMovementEntities;
+
+    public List<StockMovementEntity> getStockMovementEntities() {
+        return stockMovementEntities;
+    }
+
+    public void setStockMovementEntities(List<StockMovementEntity> stockMovementEntities) {
+        this.stockMovementEntities = stockMovementEntities;
+    }
+
+    public InventoryEntity getInventoryEntity() {
+        return inventoryEntity;
+    }
+
+    public void setInventoryEntity(InventoryEntity inventoryEntity) {
+        this.inventoryEntity = inventoryEntity;
+    }
 
     public Long getIdProduct() {
         return idProduct;

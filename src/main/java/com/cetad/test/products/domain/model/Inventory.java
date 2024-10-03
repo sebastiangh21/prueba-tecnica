@@ -2,8 +2,16 @@ package com.cetad.test.products.domain.model;
 
 public class Inventory {
     private Long idInventory;
-    private Long idProduct;
     private int availableQuantity;
+    private  Product product;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
     public Long getIdInventory() {
         return idInventory;
@@ -11,14 +19,6 @@ public class Inventory {
 
     public void setIdInventory(Long idInventory) {
         this.idInventory = idInventory;
-    }
-
-    public Long getIdProduct() {
-        return idProduct;
-    }
-
-    public void setIdProduct(Long idProduct) {
-        this.idProduct = idProduct;
     }
 
     public int getAvailableQuantity() {
@@ -32,7 +32,7 @@ public class Inventory {
     @Override
     public String toString() {
         return "Inventory{id=" + idInventory +
-                ", idProduct='" + idProduct +
+                ", idProduct='" + product.getIdProduct() +
                 ", availableQuantity='" + availableQuantity +
                 '}';
     }

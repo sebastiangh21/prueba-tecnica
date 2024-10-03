@@ -23,5 +23,9 @@ public interface ProductMapper {
     List<Product> toProducts(List<ProductEntity> entities);
 
     @InheritInverseConfiguration
+    @Mappings({
+            @Mapping(target = "inventoryEntity", ignore = true),
+            @Mapping(target = "stockMovementEntities", ignore = true),
+    })
     ProductEntity toProductEntity(Product product);
 }

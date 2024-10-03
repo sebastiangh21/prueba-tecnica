@@ -7,12 +7,12 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {ProductMapper.class})
 public interface InventoryMapper {
     @Mappings({
             @Mapping(source = "idInventory", target = "idInventory"),
-            @Mapping(source = "idProduct", target = "idProduct"),
             @Mapping(source = "availableQuantity", target = "availableQuantity"),
+            @Mapping(source = "productEntity", target = "product"),
     })
     Inventory toInventory(InventoryEntity entity);
 

@@ -25,7 +25,7 @@ public class ProductServiceImpl implements ManageProductUseCase {
     public Product createProduct(Product product) {
         Product savedProduct = productRepository.save(product);
         Inventory newInventory = new Inventory();
-        newInventory.setIdProduct(savedProduct.getIdProduct());
+        newInventory.setProduct(savedProduct);
         newInventory.setAvailableQuantity(0);
         inventoryRepository.save(newInventory);
         return savedProduct;
