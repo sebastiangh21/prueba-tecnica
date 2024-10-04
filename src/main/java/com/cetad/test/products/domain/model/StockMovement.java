@@ -9,6 +9,17 @@ public class StockMovement {
     private LocalDateTime movementDate;
     private int quantity;
 
+    public StockMovement(Long idMovement, Long idProduct, String movementType, LocalDateTime movementDate, int quantity) {
+        this.idMovement = idMovement;
+        this.idProduct = idProduct;
+        this.movementType = movementType;
+        this.movementDate = movementDate;
+        this.quantity = quantity;
+    }
+
+    public StockMovement() {
+    }
+
     public int getQuantity() {
         return quantity;
     }

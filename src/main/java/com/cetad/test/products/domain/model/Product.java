@@ -11,6 +11,15 @@ public class Product {
     private LocalDateTime creationDate;
     private LocalDateTime modificationDate;
 
+    public Product(Long idProduct, String name, String description, BigDecimal price, LocalDateTime creationDate, LocalDateTime modificationDate) {
+        this.idProduct = idProduct;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.creationDate = creationDate;
+        this.modificationDate = modificationDate;
+    }
+
     public Long getIdProduct() {
         return idProduct;
     }
