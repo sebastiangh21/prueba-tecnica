@@ -12,7 +12,6 @@ import java.util.List;
 
 @Repository
 public class StockMovementPersistenceAdapter implements StockMovementRepository {
-
     @Autowired
     private JpaStockMovementRepository jpaStockMovementRepository;
     @Autowired

@@ -22,6 +22,5 @@ public interface StockMovementMapper {
     List<StockMovement> toStockMovements(List<StockMovementEntity> entities);
 
     @InheritInverseConfiguration
-    @Mapping(target = "productEntity", ignore = true)
     StockMovementEntity toStockMovementEntity(StockMovement stockMovement);
 }

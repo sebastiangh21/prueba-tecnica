@@ -12,7 +12,7 @@ public class InventoryEntity {
     @Column(name = "available_quantity")
     private int availableQuantity;
     @OneToOne
-    @JoinColumn(name = "id_product", insertable = false, updatable = false)
+    @JoinColumn(name = "id_product")
     private ProductEntity productEntity;
 
     public ProductEntity getProductEntity() {

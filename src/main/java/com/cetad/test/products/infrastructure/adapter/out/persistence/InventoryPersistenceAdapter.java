@@ -12,7 +12,6 @@ import java.util.Optional;
 
 @Repository
 public class InventoryPersistenceAdapter implements InventoryRepository {
-
     @Autowired
     private JpaInventoryRepository jpaInventoryRepository;
     @Autowired

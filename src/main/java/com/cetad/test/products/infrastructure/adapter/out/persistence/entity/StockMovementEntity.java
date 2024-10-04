@@ -19,7 +19,7 @@ public class StockMovementEntity {
     private LocalDateTime movementDate;
     private int quantity;
     @ManyToOne
-    @JoinColumn(name = "id_product", insertable = false, updatable = false)
+    @JoinColumn(name = "id_product")
     private ProductEntity productEntity;
 
     public ProductEntity getProductEntity() {
