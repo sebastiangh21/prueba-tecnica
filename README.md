@@ -25,8 +25,8 @@ Este proyecto es una API REST para la gestión de productos, inventarios y movim
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
-   cd tu-repositorio
+   git clone https://github.com/sebastiangh21/prueba-tecnica.git
+   cd prueba-tecnica
 2. Crear un archivo application.properties dentro del directorio src/main/resources/ con la siguiente configuración para PostgreSQL:
    ```bash
    datasource:
@@ -41,44 +41,43 @@ Asegúrate de reemplazar your_database, your_username, y your_password con tus c
 3. Crear la base de datos
    ```bash
    CREATE TABLE products (
-    id_product SERIAL NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    price NUMERIC(10, 2) NOT NULL,
-    creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    modification_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id_product)
-   );
-
+      id_product SERIAL NOT NULL,
+      name VARCHAR(255) NOT NULL,
+      description TEXT,
+      price NUMERIC(10, 2) NOT NULL,
+      creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      modification_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY ("id_product")
+    );
 
    CREATE TABLE inventory
-   (
-      id_inventory serial NOT NULL,
-      id_product integer NOT NULL,
-      available_quantity integer NOT NULL,
+    (
+      id_inventory SERIAL NOT NULL,
+      id_product INT NOT NULL,
+      available_quantity INT NOT NULL,
       PRIMARY KEY ("id_inventory"),
       CONSTRAINT "fk_products_inventory"
-         FOREIGN KEY ("id_product")
-         REFERENCES products ("id_product")
-         ON DELETE CASCADE
-         ON UPDATE NO ACTION,
-      CONSTRAINT unique_id_product UNIQUE (id_product)
-   );
+          FOREIGN KEY ("id_product")
+          REFERENCES products ("id_product")
+          ON DELETE CASCADE
+          ON UPDATE NO ACTION,
+      CONSTRAINT unique_id_product UNIQUE ("id_product")
+    );
 
    CREATE TABLE stock_movements
-   (
-      id_movement serial NOT NULL,
-      id_product integer NOT NULL,
-      movement_type character varying(10) NOT NULL CHECK (movement_type IN ('entry', 'exit')),
-      movement_date timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-      quantity integer NOT NULL,
+    (
+      id_movement SERIAL NOT NULL,
+      id_product INT NOT NULL,
+      movement_type VARCHAR(10) NOT NULL CHECK (movement_type IN ('entry', 'exit')),
+      movement_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      quantity INT NOT NULL,
       PRIMARY KEY (id_movement),
       CONSTRAINT "fk_products_stock_movements"
-         FOREIGN KEY ("id_product")
-         REFERENCES products ("id_product")
-         ON DELETE CASCADE
-         ON UPDATE NO ACTION
-   );
+          FOREIGN KEY ("id_product")
+          REFERENCES products ("id_product")
+          ON DELETE CASCADE
+          ON UPDATE NO ACTION
+    );
 4. Compilar la aplicación
 
 5. Ejecutar la aplicación 
